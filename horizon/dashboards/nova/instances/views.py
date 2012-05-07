@@ -33,14 +33,14 @@ from horizon import api
 from horizon import exceptions
 from horizon import tables
 from .instances.tables import InstancesTable
-from .volumes.tables import VolumesTable
+#from .volumes.tables import VolumesTable
 
 
 LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.MultiTableView):
-    table_classes = (InstancesTable, VolumesTable)
+    table_classes = (InstancesTable,)
     template_name = 'nova/instances/index.html'
 
     def get_instances_data(self):

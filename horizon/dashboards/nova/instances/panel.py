@@ -20,7 +20,7 @@ import horizon
 from horizon.dashboards.nova import dashboard
 
 
-class InstancesAndVolumes(horizon.Panel):
+class Instances(horizon.Panel):
     name = _("Instances")
     slug = 'instances'
 

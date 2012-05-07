@@ -17,7 +17,8 @@
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
-
+#import pdb
+#pdb.set_trace()
 
 class BasePanels(horizon.PanelGroup):
     slug = "compute"

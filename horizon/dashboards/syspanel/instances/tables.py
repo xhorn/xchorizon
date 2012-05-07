@@ -22,7 +22,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import api
 from horizon import tables
-from horizon.dashboards.nova.instances_and_volumes.instances.tables import (
+from horizon.dashboards.nova.instances.instances.tables import (
         TerminateInstance, EditInstance, ConsoleLink, LogLink, SnapshotLink,
         TogglePause, ToggleSuspend, RebootInstance, get_size, UpdateRow,
         get_ips, get_power_state)
@@ -59,7 +59,7 @@ class SyspanelInstancesTable(tables.DataTable):
     host = tables.Column("OS-EXT-SRV-ATTR:host",
                          verbose_name=_("Host"),
                          classes=('nowrap-col',))
-    name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
+    name = tables.Column("name", link="horizon:nova:instances:" \
                                       "instances:detail",
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))

@@ -22,7 +22,7 @@ from django.conf.urls.defaults import *
 
 from .instances import urls as instance_urls
 from .views import IndexView
-from .volumes import urls as volume_urls
+#from .volumes import urls as volume_urls
 
 
 urlpatterns = patterns('horizon.dashboards.nova.instances',

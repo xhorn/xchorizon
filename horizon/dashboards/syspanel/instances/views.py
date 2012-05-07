@@ -28,7 +28,7 @@ from horizon import api
 from horizon import exceptions
 from horizon import tables
 from horizon.dashboards.syspanel.instances.tables import SyspanelInstancesTable
-from horizon.dashboards.nova.instances_and_volumes .instances.views import (
+from horizon.dashboards.nova.instances .instances.views import (
         console, DetailView, vnc)
 
 
