@@ -18,18 +18,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import *
 
-from .views import UpdateView, DetailView
+from .instances import urls as instance_urls
+from .views import IndexView
+from .volumes import urls as volume_urls
 
 
-INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
-
-
-urlpatterns = patterns(
-    'horizon.dashboards.nova.instances_and_volumes.instances.views',
-    url(INSTANCES % 'detail', DetailView.as_view(), name='detail'),
-    url(INSTANCES % 'console', 'console', name='console'),
-    url(INSTANCES % 'vnc', 'vnc', name='vnc'),
-    url(INSTANCES % 'update', UpdateView.as_view(), name='update'),
+urlpatterns = patterns('horizon.dashboards.nova.instances',
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^instances/', include(instance_urls, namespace='instances')),
+    #url(r'^volumes/', include(volume_urls, namespace='volumes')),
 )

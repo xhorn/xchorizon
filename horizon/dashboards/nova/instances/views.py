@@ -41,7 +41,7 @@ LOG = logging.getLogger(__name__)
 
 class IndexView(tables.MultiTableView):
     table_classes = (InstancesTable, VolumesTable)
-    template_name = 'nova/instances_and_volumes/index.html'
+    template_name = 'nova/instances/index.html'
 
     def get_instances_data(self):
         # Gather our instances
@@ -63,12 +63,12 @@ class IndexView(tables.MultiTableView):
                 exceptions.handle(self.request, msg)
         return instances
 
-    def get_volumes_data(self):
-        # Gather our volumes
-        try:
-            volumes = api.volume_list(self.request)
-        except novaclient_exceptions.ClientException, e:
-            volumes = []
-            LOG.exception("ClientException in volume index")
-            messages.error(self.request, _('Unable to fetch volumes: %s') % e)
-        return volumes
+#    def get_volumes_data(self):
+#        # Gather our volumes 
+#        try:
+#            volumes = api.volume_list(self.request)
+#        except novaclient_exceptions.ClientException, e:
+#            volumes = []
+#            LOG.exception("ClientException in volume index")
+#            messages.error(self.request, _('Unable to fetch volumes: %s') % e)
+#        return volumes

@@ -143,7 +143,7 @@ class LaunchLink(tables.LinkAction):
 class EditInstance(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Instance")
-    url = "horizon:nova:instances_and_volumes:instances:update"
+    url = "horizon:nova:instances:instances:update"
     classes = ("ajax-modal", "btn-edit")
 
 
@@ -160,7 +160,7 @@ class SnapshotLink(tables.LinkAction):
 class ConsoleLink(tables.LinkAction):
     name = "console"
     verbose_name = _("VNC Console")
-    url = "horizon:nova:instances_and_volumes:instances:detail"
+    url = "horizon:nova:instances:instances:detail"
     classes = ("btn-console",)
 
     def allowed(self, request, instance=None):
@@ -175,7 +175,7 @@ class ConsoleLink(tables.LinkAction):
 class LogLink(tables.LinkAction):
     name = "log"
     verbose_name = _("View Log")
-    url = "horizon:nova:instances_and_volumes:instances:detail"
+    url = "horizon:nova:instances:instances:detail"
     classes = ("btn-log",)
 
     def allowed(self, request, instance=None):
@@ -197,7 +197,7 @@ class UpdateRow(tables.Row):
 
 
 def get_ips(instance):
-    template_name = 'nova/instances_and_volumes/instances/_instance_ips.html'
+    template_name = 'nova/instances/instances/_instance_ips.html'
     context = {"instance": instance}
     return template.loader.render_to_string(template_name, context)
 
@@ -231,7 +231,7 @@ class InstancesTable(tables.DataTable):
         ("paused", True),
         ("error", False),
     )
-    name = tables.Column("name", link="horizon:nova:instances_and_volumes:" \
+    name = tables.Column("name", link="horizon:nova:instances:" \
                                       "instances:detail",
                          verbose_name=_("Instance Name"))
     ip = tables.Column(get_ips, verbose_name=_("IP Address"))

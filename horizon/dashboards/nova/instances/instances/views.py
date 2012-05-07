@@ -62,14 +62,14 @@ def vnc(request, instance_id):
         return shortcuts.redirect(console.url +
                 ("&title=%s(%s)" % (instance.name, instance_id)))
     except:
-        redirect = reverse("horizon:nova:instances_and_volumes:index")
+        redirect = reverse("horizon:nova:instances:index")
         msg = _('Unable to get VNC console for instance "%s".') % instance_id
         exceptions.handle(request, msg, redirect=redirect)
 
 
 class UpdateView(forms.ModalFormView):
     form_class = UpdateInstance
-    template_name = 'nova/instances_and_volumes/instances/update.html'
+    template_name = 'nova/instances/instances/update.html'
     context_object_name = 'instance'
 
     def get_object(self, *args, **kwargs):
@@ -78,7 +78,7 @@ class UpdateView(forms.ModalFormView):
             try:
                 self.object = api.server_get(self.request, instance_id)
             except:
-                redirect = reverse("horizon:nova:instances_and_volumes:index")
+                redirect = reverse("horizon:nova:instances:index")
                 msg = _('Unable to retrieve instance details.')
                 exceptions.handle(self.request, msg, redirect=redirect)
         return self.object
@@ -91,7 +91,7 @@ class UpdateView(forms.ModalFormView):
 
 class DetailView(tabs.TabView):
     tab_group_class = InstanceDetailTabs
-    template_name = 'nova/instances_and_volumes/instances/detail.html'
+    template_name = 'nova/instances/instances/detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -110,7 +110,7 @@ class DetailView(tabs.TabView):
                 instance.security_groups = api.server_security_groups(
                                            self.request, instance_id)
             except:
-                redirect = reverse('horizon:nova:instances_and_volumes:index')
+                redirect = reverse('horizon:nova:instances:index')
                 exceptions.handle(self.request,
                                   _('Unable to retrieve details for '
                                     'instance "%s".') % instance_id,

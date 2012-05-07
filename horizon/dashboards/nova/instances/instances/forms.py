@@ -47,4 +47,4 @@ class UpdateInstance(forms.SelfHandlingForm):
             exceptions.handle(request, _('Unable to update instance.'))
 
         return shortcuts.redirect(
-                        'horizon:nova:instances_and_volumes:index')
+                        'horizon:nova:instances:index')

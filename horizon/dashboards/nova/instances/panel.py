@@ -14,22 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import patterns, url
+from django.utils.translation import ugettext_lazy as _
 
-from .views import (CreateView, EditAttachmentsView, DetailView,
-                    CreateSnapshotView)
+import horizon
+from horizon.dashboards.nova import dashboard
 
 
-urlpatterns = patterns(
-    'horizon.dashboards.nova.instances_and_volumes.volumes.views',
-    url(r'^create/$', CreateView.as_view(), name='create'),
-    url(r'^(?P<volume_id>[^/]+)/attach/$',
-        EditAttachmentsView.as_view(),
-        name='attach'),
-    url(r'^(?P<volume_id>[^/]+)/create_snapshot/$',
-        CreateSnapshotView.as_view(),
-        name='create_snapshot'),
-    url(r'^(?P<volume_id>[^/]+)/detail/$',
-        DetailView.as_view(),
-        name='detail'),
-)
+class InstancesAndVolumes(horizon.Panel):
+    name = _("Instances")
+    slug = 'instances'
+
+
+dashboard.Nova.register(Instances)

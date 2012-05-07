@@ -24,7 +24,7 @@ from horizon import tabs
 class OverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "overview"
-    template_name = ("nova/instances_and_volumes/instances/"
+    template_name = ("nova/instances/instances/"
                      "_detail_overview.html")
 
     def get_context_data(self, request):
@@ -34,7 +34,7 @@ class OverviewTab(tabs.Tab):
 class LogTab(tabs.Tab):
     name = _("Log")
     slug = "log"
-    template_name = "nova/instances_and_volumes/instances/_detail_log.html"
+    template_name = "nova/instances/instances/_detail_log.html"
     preload = False
 
     def get_context_data(self, request):
@@ -53,7 +53,7 @@ class LogTab(tabs.Tab):
 class VNCTab(tabs.Tab):
     name = _("VNC")
     slug = "vnc"
-    template_name = "nova/instances_and_volumes/instances/_detail_vnc.html"
+    template_name = "nova/instances/instances/_detail_vnc.html"
     preload = False
 
     def get_context_data(self, request):
