@@ -12,6 +12,9 @@
     {% block content %}
       <div id="container">
 	<div class='topbar_test'>
+	<div>
+        <a href="{% url horizon:user_home %}" id='home'>{% trans "OpenStack Dashboard" %}</a>          
+        </div>
         {% block sidebar %}{% endblock %}
 	{% include "_header.html" %}
 	</div>
