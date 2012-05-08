@@ -11,11 +11,12 @@
   <body id="{% block body_id %}{% endblock %}">
     {% block content %}
       <div id="container">
+	<div class='topbar_test'>
         {% block sidebar %}{% endblock %}
+	{% include "_header.html" %}
+	</div>
         <div id='main_content'>
           <div class='topbar'>
-          {% include "_header.html" %}
-          {% block page_header %}{% endblock %}
           </div>
           {% block main %}{% endblock %}
         </div>
