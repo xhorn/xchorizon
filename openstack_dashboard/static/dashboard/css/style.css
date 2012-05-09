@@ -44,6 +44,17 @@ dt {
 float:left;
 width:100%;
 }
+.topbar_test .nav {
+  margin-bottom:0px;
+}
+.topbar_test .nav-tabs li a {
+  color:black;
+}
+.topbar_test .nav-tabs li.active a {
+background-color:#008CB3;
+font-weight:bold;
+font-size:12pt;
+}
 .topbar {
   background: #f2f2f2;
   border-bottom: 1px solid #e5e5e5;
@@ -145,7 +156,7 @@ body {
 }
 
 .nav li a {
-    color: #8EACB7;
+    color: white;
     text-shadow: none;
 }
 
@@ -169,12 +180,9 @@ body {
     display:none;
 }
 
-.sidebar .nav-tabs {
-    margin-top: -34px;
+.sidebar .nav-tabs li a{
 }
-
 .sidebar .nav-tabs li.active a {
-    background-color: #edf9ff;
 }
 
 h1.brand {
@@ -442,6 +450,7 @@ table form {
 
 .table {
     margin-bottom: 25px;
+    float:left;
 }
 
 .table tr td {
