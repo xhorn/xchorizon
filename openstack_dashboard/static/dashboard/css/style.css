@@ -54,7 +54,9 @@ width:100%;
 background-color:#008CB3;
 font-weight:bold;
 font-size:12pt;
+border:none;
 }
+
 .topbar {
   background: #f2f2f2;
   border-bottom: 1px solid #e5e5e5;
