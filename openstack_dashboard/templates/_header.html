@@ -1,8 +1,8 @@
 {% load i18n %}
 <div id="user_info" class="dropdown switcher_bar">
   <a class="dropdown-toggle" data-toggle="dropdown">
-	<h3>{{ request.user.username }}</h3>
-  </a>
+	{{ request.user.username }}
+  <b class='caret'></b></a>
   <ul class="dropdown-menu">
   <li><a href="{% url horizon:settings:user:index %}">{% trans "Settings" %}</a></li>
   <li><a href="{% url horizon:auth_logout %}">{% trans "Sign Out" %}</a></li>

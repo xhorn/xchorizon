@@ -1,11 +1,12 @@
 {% load horizon i18n %}
   {% horizon_main_nav %}
+  <div class='clearfix tabbable'>
   {% if request.horizon.dashboard.supports_tenants %}
-  <div id="tenant_switcher" class="dropdown switcher_bar" tabindex='1'>
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
+  <div id="tenant_switcher" class='dropdown' tabindex='1'>
+    <a class='dropdown-toggle' data-toggle="dropdown" href="#tenant_switcher">
       <h3>{{ request.user.tenant_name }}</h3>
-      </a>
-    <ul id="tenant_list" class="dropdown-menu">
+    <b class='caret'></b></a>
+    <ul id="tenant_list" class='dropdown-menu'>
       {% for tenant in authorized_tenants %}
         {% if tenant.enabled %}
           <li><a href="{% url horizon:auth_switch tenant.id %}">{{ tenant.name }}</a></li>
@@ -15,3 +16,4 @@
   </div>
   {% endif %}
   {% horizon_dashboard_nav %}
+  </div>

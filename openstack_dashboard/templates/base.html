@@ -11,16 +11,15 @@
   <body id="{% block body_id %}{% endblock %}">
     {% block content %}
       <div id="container">
-	<div class='topbar_test'>
-	<div>
-        <a href="{% url horizon:user_home %}" id='home'>{% trans "OpenStack Dashboard" %}</a>          
-        </div>
-	{% include "_header.html" %}
-        {% block sidebar %}{% endblock %}
+	<div class='topbar_xc'>
+	    <a class="brand" style="font-size:35px" href="{% url horizon:user_home %}">	{% trans "行云" %}</a>
+            {% include "_header.html" %}
 	</div>
         <div id='main_content'>
           <div class='topbar'>
+		        {% block sidebar %}{% endblock %}
           </div>
+
           {% block main %}{% endblock %}
         </div>
       </div>

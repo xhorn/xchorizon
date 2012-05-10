@@ -1,7 +1,7 @@
 {% load horizon i18n %}
+  	{% if user|is_admin %}
 <div class='clearfix'>
   <ul class="nav nav-tabs">
-  	{% if user|is_admin %}
     	{% for component in components %}
     		{% if user|can_haz:component %}
         		<li{% if current.slug == component.slug %} class="active"{% endif %}>
@@ -9,6 +9,6 @@
         		</li>
     		{% endif %}
   		{% endfor %}
-  	{% endif %}
   </ul>
 </div>
+  	{% endif %}
