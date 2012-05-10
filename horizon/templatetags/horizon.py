@@ -53,11 +53,7 @@ def is_admin(user):
     """
     Checks if the given user has role of admin.
     """
-    if hasattr(user, 'roles'):
-        user_roles = set([role['name'].lower() for role in user.roles])
-    else:
-        user_roles = set([])
-    return 'admin' in user_roles  
+    return user.admin
 @register.filter
 def can_haz_list(components, user):
     return [component for component in components if can_haz(user, component)]
